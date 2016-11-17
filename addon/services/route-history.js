@@ -79,9 +79,11 @@ export default Ember.Service.extend({
 	 */
 	setCurrentRoute(route) {
 		const routeName = route.get('routeName');
+		const windowLocationHref = window.location.href;
+
 		if (routeName !== 'loading') {
-			this.set('current', routeName);
-			this.addRouteToHistory(routeName);
+			this.set('current', windowLocationHref);
+			this.addRouteToHistory(windowLocationHref);
 		}
 	}
 });
